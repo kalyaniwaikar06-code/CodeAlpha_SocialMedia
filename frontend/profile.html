@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>Profile</h2>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <button onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="feed-container">
+
+    <div class="profile-card">
+
+        <div class="profile-avatar" id="avatar"></div>
+
+        <h2 id="name"></h2>
+
+        <p id="email"></p>
+
+        <div class="stats">
+            <div>
+                Followers
+                <h3 id="followersCount">0</h3>
+            </div>
+
+            <div>
+                Following
+                <h3 id="followingCount">0</h3>
+            </div>
+        </div>
+
+        <button id="followBtn">
+            Follow
+        </button>
+
+    </div>
+
+    <h2>My Posts</h2>
+
+    <div id="userPosts"></div>
+
+</div>
+
+<script src="js/profile.js"></script>
+
+</body>
+</html>

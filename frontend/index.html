@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2>SocialApp</h2>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+
+        <button onclick="toggleTheme()">🌙</button>
+
+        <button onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="search-box">
+    <input type="text" id="searchUser" placeholder="Search users...">
+    <button onclick="searchUser()">Search</button>
+</div>
+
+<div class="feed-container">
+
+    <div class="header">
+        <h2>🌐 ConnectHub</h2>
+    </div>
+
+    <div class="create-post">
+
+        <textarea
+            id="content"
+            placeholder="What's on your mind?"
+        ></textarea>
+
+        <div class="emoji-box">
+
+<button onclick="addEmoji('😀')">😀</button>
+<button onclick="addEmoji('😁')">😁</button>
+<button onclick="addEmoji('😂')">😂</button>
+<button onclick="addEmoji('🤣')">🤣</button>
+<button onclick="addEmoji('😊')">😊</button>
+<button onclick="addEmoji('😍')">😍</button>
+<button onclick="addEmoji('😘')">😘</button>
+<button onclick="addEmoji('😎')">😎</button>
+<button onclick="addEmoji('🥳')">🥳</button>
+<button onclick="addEmoji('🤩')">🤩</button>
+
+<button onclick="addEmoji('❤️')">❤️</button>
+<button onclick="addEmoji('💖')">💖</button>
+<button onclick="addEmoji('💕')">💕</button>
+<button onclick="addEmoji('💯')">💯</button>
+<button onclick="addEmoji('🔥')">🔥</button>
+<button onclick="addEmoji('⭐')">⭐</button>
+
+<button onclick="addEmoji('👍')">👍</button>
+<button onclick="addEmoji('👏')">👏</button>
+<button onclick="addEmoji('🙌')">🙌</button>
+<button onclick="addEmoji('🤝')">🤝</button>
+
+<button onclick="addEmoji('🎉')">🎉</button>
+<button onclick="addEmoji('🎊')">🎊</button>
+<button onclick="addEmoji('🎂')">🎂</button>
+<button onclick="addEmoji('🎵')">🎵</button>
+<button onclick="addEmoji('🎶')">🎶</button>
+
+<button onclick="addEmoji('🌹')">🌹</button>
+<button onclick="addEmoji('🌸')">🌸</button>
+<button onclick="addEmoji('☀️')">☀️</button>
+<button onclick="addEmoji('🌈')">🌈</button>
+
+</div>
+
+        <label><b>📸 Choose Image</b></label>
+         <input type="file" id="image">
+
+         <br><br>
+
+         <label><b>🎵 Choose Audio</b></label>
+         <input type="file" id="audio" accept="audio/*">
+
+        <button onclick="createPost()">
+            Post
+        </button>
+
+    </div>
+
+    <div id="posts"></div>
+
+</div>
+
+<script src="js/post.js"></script>
+
+</body>
+</html>

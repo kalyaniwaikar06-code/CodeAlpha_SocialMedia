@@ -1,0 +1,43 @@
+###
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email":"kalyani@gmail.com",
+  "password":"123456"
+}
+
+###
+GET http://localhost:5000/api/posts/all
+
+###
+POST http://localhost:5000/api/posts/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmZhYmQ0NDhiZGI3OTY4YzRhZTA4NyIsImlhdCI6MTc4MTUxNDU1NCwiZXhwIjoxNzgyMTE5MzU0fQ.QPXXVcW5TsEhLXHuLRJ4VqsLpPA5B6f_CKYhDR8qk3w
+
+{
+  "content":"Hello everyone! This is my first post."
+}
+
+###
+PUT http://localhost:5000/api/posts/like/6a2fbf5d404d1673f189101c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmZhYmQ0NDhiZGI3OTY4YzRhZTA4NyIsImlhdCI6MTc4MTUxNDU1NCwiZXhwIjoxNzgyMTE5MzU0fQ.QPXXVcW5TsEhLXHuLRJ4VqsLpPA5B6f_CKYhDR8qk3w
+
+###
+POST http://localhost:5000/api/posts/comment/6a2fbf5d404d1673f189101c
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmZhYmQ0NDhiZGI3OTY4YzRhZTA4NyIsImlhdCI6MTc4MTUxNDU1NCwiZXhwIjoxNzgyMTE5MzU0fQ.QPXXVcW5TsEhLXHuLRJ4VqsLpPA5B6f_CKYhDR8qk3w
+
+{
+  "text":"Nice Post!"
+}
+
+###
+GET http://localhost:5000/api/posts/comments/6a2fbf5d404d1673f189101c
+
+###
+DELETE http://localhost:5000/api/posts/delete/6a2fbf5d404d1673f189101c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmZhYmQ0NDhiZGI3OTY4YzRhZTA4NyIsImlhdCI6MTc4MTUxNDU1NCwiZXhwIjoxNzgyMTE5MzU0fQ.QPXXVcW5TsEhLXHuLRJ4VqsLpPA5B6f_CKYhDR8qk3w
+
+###
+GET http://localhost:5000/api/posts/all
