@@ -79,6 +79,45 @@ node server.js
 
 3. Open frontend files using Live Server
 
+## Screenshots
+
+### Register Page
+
+![Register Page](frontend/screenshots/register.png)
+
+### Login Page
+
+![Login Page](frontend/screenshots/login.png)
+
+### Home Feed
+
+![Home Feed](frontend/screenshots/home.png.png)
+
+### Create Post
+
+![Create Post](frontend/screenshots/create-post.png)
+
+### Profile Page
+
+![Profile Page](frontend/screenshots/profile.png.png)
+
+### Dark Mode
+
+![Dark Mode](frontend/screenshots/dark-mode.png)
+
+### Comment Feature
+
+![Comment Feature](frontend/screenshots/comment.png)
+
+### Follow Feature
+
+![Follow Feature](frontend/screenshots/follow-button.png)
+
+### Like / Unlike Feature
+
+![Like Unlike Feature](frontend/screenshots/like-unlike.png)
+
+
 ## Author
 
 Kalyani Waikar
