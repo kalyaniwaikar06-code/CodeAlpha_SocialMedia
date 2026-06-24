@@ -91,7 +91,7 @@ node server.js
 
 ### Home Feed
 
-![Home Feed](frontend/screenshots/home.png.png)
+![Home Feed](frontend/screenshots/home.png)
 
 ### Create Post
 
@@ -99,7 +99,7 @@ node server.js
 
 ### Profile Page
 
-![Profile Page](frontend/screenshots/profile.png.png)
+![Profile Page](frontend/screenshots/profile.png)
 
 ### Dark Mode
 
@@ -116,6 +116,7 @@ node server.js
 ### Like / Unlike Feature
 
 ![Like Unlike Feature](frontend/screenshots/like-unlike.png)
+
 
 
 ## Author
