@@ -4,6 +4,15 @@ const User = require("../models/User");
 const authMiddleware = require("../middleware/authMiddleware");
 
 const router = express.Router();
+router.get("/test", (req,res)=>{
+    res.send("TEST WORKING");
+});
+
+router.get("/test", (req,res)=>{
+    res.json({
+        message:"User Route Working"
+    });
+});
 
 router.get("/search", async (req, res) => {
 
@@ -31,7 +40,9 @@ router.get("/profile/:id", async (req, res) => {
     try {
 
         const user = await User.findById(req.params.id)
-        .select("-password");
+        .populate("followers", "name email profilePic")
+          .populate("following", "name email profilePic")
+           .select("-password");
 
         res.json(user);
 
@@ -117,4 +128,145 @@ router.put("/unfollow/:id", authMiddleware, async (req, res) => {
 
 });
 
+router.put("/save/:postId", authMiddleware, async (req, res) => {
+
+    try {
+
+        const user = await User.findById(req.user);
+
+        if (!user.savedPosts.includes(req.params.postId)) {
+
+            user.savedPosts.push(req.params.postId);
+            await user.save();
+
+        }
+
+        res.json({
+            message: "Post Saved Successfully"
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            message: error.message
+        });
+
+    }
+
+});
+
+router.put("/unsave/:postId", authMiddleware, async (req, res) => {
+
+    try {
+
+        const user = await User.findById(req.user);
+
+        user.savedPosts = user.savedPosts.filter(
+            id => id.toString() !== req.params.postId
+        );
+
+        await user.save();
+
+        res.json({
+            message: "Post Unsaved Successfully"
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            message: error.message
+        });
+
+    }
+});
+
+const upload = require("../config/multerConfig");
+
+router.put(
+    "/profile-pic",
+    authMiddleware,
+    upload.single("profilePic"),
+    async (req, res) => {
+
+        try {
+
+            const user = await User.findById(req.user);
+
+            user.profilePic = req.file.filename;
+
+            await user.save();
+
+            res.json({
+                message: "Profile Picture Updated"
+            });
+
+        } catch (error) {
+
+            res.status(500).json({
+                message: error.message
+            });
+
+        }
+
+    }
+);
+
+
+router.put("/remove-profile-pic", authMiddleware, async (req, res) => {
+
+
+    try {
+
+        const user = await User.findById(req.user);
+
+        user.profilePic = "";
+
+        await user.save();
+
+        res.json({
+            message: "Profile Picture Removed"
+        });
+
+    } catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+            message: error.message
+        });
+
+    }
+
+});
+
+const Post = require("../models/Post");
+
+router.get(
+    "/saved-posts",
+    authMiddleware,
+    async (req,res)=>{
+
+        try{
+
+            const user = await User.findById(req.user)
+            .populate({
+                path:"savedPosts",
+                populate:{
+                    path:"user",
+                    select:"name profilePic"
+                }
+            });
+
+            res.json(user.savedPosts);
+
+        }catch(error){
+
+            res.status(500).json({
+                message:error.message
+            });
+
+        }
+
+    }
+);
 module.exports = router;

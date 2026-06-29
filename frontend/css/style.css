@@ -347,3 +347,353 @@ object-fit:cover;
     cursor:pointer;
     font-size:18px;
 }
+
+/* Professional Profile Card */
+
+.profile-card{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    margin-bottom:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.12);
+}
+
+.profile-avatar{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#1877f2,#4f9cff);
+    color:white;
+    font-size:45px;
+    font-weight:bold;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+    margin-bottom:20px;
+}
+
+/* Professional Post Card */
+
+.post-card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.post-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.post-image{
+    width:100%;
+    border-radius:12px;
+    margin-top:12px;
+    margin-bottom:12px;
+}
+
+audio{
+    width:100%;
+    margin-top:10px;
+}
+
+.stats h3{
+    color:#1877f2;
+    font-size:24px;
+    cursor:pointer;
+}
+
+.stats div{
+    transition:0.3s;
+}
+
+.stats div:hover{
+    transform:scale(1.05);
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    z-index:1000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+}
+
+.modal-content{
+    background:white;
+    width:350px;
+    margin:100px auto;
+    padding:20px;
+    border-radius:15px;
+    max-height:500px;
+    overflow-y:auto;
+}
+
+.close{
+    float:right;
+    font-size:28px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.user-item{
+    padding:10px;
+    border-bottom:1px solid #eee;
+}
+
+.dp-text{
+    margin-top:10px;
+    color:#1877f2;
+    font-size:14px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.profile-avatar-container{
+    position:relative;
+    width:120px;
+    margin:auto;
+}
+
+.camera-icon{
+    position:absolute;
+    bottom:5px;
+    right:0;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background:#1877f2;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    border:2px solid white;
+}
+
+.profile-avatar-container{
+    position:relative;
+    width:120px;
+    margin:auto;
+}
+
+.camera-icon{
+    position:absolute;
+    bottom:5px;
+    right:0;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background:#1877f2;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    border:2px solid white;
+}
+
+.remove-icon{
+    position:absolute;
+    top:5px;
+    right:0;
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:#ff3b30;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    font-size:14px;
+    border:2px solid white;
+}
+
+
+.camera-menu{
+    display:none;
+    position:absolute;
+    top:125px;
+    right:-20px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    overflow:hidden;
+    z-index:1000;
+    min-width:150px;
+}
+
+.camera-menu div{
+    padding:12px 15px;
+    cursor:pointer;
+}
+
+.camera-menu div:hover{
+    background:#f2f2f2;
+}
+
+.emoji-wrapper{
+    position:relative;
+    margin-top:10px;
+}
+
+#emojiPicker{
+    position:absolute;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:10px;
+    width:220px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.2);
+    z-index:100;
+}
+
+#emojiPicker span{
+    cursor:pointer;
+    font-size:22px;
+    margin:5px;
+}
+
+
+
+.profile-tabs{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
+}
+
+.profile-tabs button{
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    background:#1877f2;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.settings-menu{
+
+    display:none;
+
+    position:absolute;
+
+    right:20px;
+
+    top:60px;
+
+    background:white;
+
+    border-radius:10px;
+
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+
+    overflow:hidden;
+}
+
+.settings-menu div{
+
+    padding:12px 20px;
+
+    cursor:pointer;
+}
+
+.settings-menu div:hover{
+
+    background:black;
+}
+
+.show{
+
+    display:block;
+}
+
+.mini-avatar{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#6c63ff;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size:18px;
+}
+
+
+.profile-tabs{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin:20px 0;
+}
+
+.profile-tabs button{
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.post-user{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+    font-weight:bold;
+}
+
+.mini-avatar{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#2196f3;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+#posts h2,
+#userPosts h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.follow-user{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:10px 0;
+}
+
+.follow-pic{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.follow-letter{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#2196f3;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}

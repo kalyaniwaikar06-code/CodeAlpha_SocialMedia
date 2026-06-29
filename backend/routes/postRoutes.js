@@ -57,7 +57,7 @@ router.get("/all", async (req, res) => {
   try {
 
     const posts = await Post.find()
-      .populate("user", "name email")
+      .populate("user", "name email profilePic")
       .sort({ createdAt: -1 });
 
     res.json(posts);
@@ -262,5 +262,24 @@ router.put("/unlike/:id", authMiddleware, async (req, res) => {
     }
 });
 
+router.get("/user/:id", async (req, res) => {
+
+  try {
+
+    const posts = await Post.find({
+      user: req.params.id
+    }).sort({ createdAt: -1 });
+
+    res.json(posts);
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message
+    });
+
+  }
+
+});
 
 module.exports = router;

@@ -23,32 +23,82 @@
 
     <div class="profile-card">
 
-        <div class="profile-avatar" id="avatar"></div>
+        <div class="profile-avatar-container">
+
+        <div class ="profile-avatar" id="avatar"
+        onclick="document.getElementById('profileImage').click()">
+        </div>
+
+        
+          <div class="camera-icon"
+     onclick="toggleCameraMenu()">
+    ✏️
+</div>
+
+<div class="camera-menu" id="cameraMenu">
+
+    <div onclick="document.getElementById('profileImage').click()">
+        Change Photo
+    </div>
+
+    <div onclick="removeProfilePic()">
+        Remove Photo
+    </div>
+
+</div>
+
+</div>
+
+        <input
+         type="file"
+         id="profileImage"
+         accept="image/*"
+          onchange="uploadProfilePic()"
+          style="display:none;">
 
         <h2 id="name"></h2>
-
-        <p id="email"></p>
 
         <div class="stats">
 
             <div>
-                Followers
-                <h3 id="followersCount">0</h3>
-            </div>
+            Followers
+            <h3 id="followersCount" onclick="showFollowers()">0</h3>
+       </div>
 
-            <div>
-                Following
-                <h3 id="followingCount">0</h3>
-            </div>
+             <div>
+             Following
+            <h3 id="followingCount" onclick="showFollowing()">0</h3>
+        </div>
 
         </div>
 
     </div>
 
-    <h2>My Posts</h2>
+    <div class="profile-tabs">
 
-    <div id="userPosts"></div>
+    <button onclick="loadMyPosts()">
+        📄 Posts
+    </button>
 
+    <button onclick="loadSavedPosts()">
+        🔖 Saved
+    </button>
+
+</div>
+     <div id="userPosts"></div>
+
+</div>
+
+<div id="userModal" class="modal">
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <h2 id="modalTitle"></h2>
+
+        <div id="modalUsers"></div>
+
+    </div>
 </div>
 
 <script src="js/profile.js"></script>

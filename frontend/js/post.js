@@ -87,58 +87,66 @@ async function loadPosts() {
         output += `
         <div class="post-card">
 
-            <div class="post-header">
+            <div class="post-user">
 
-                <div class="avatar">
-                    ${post.user.name.charAt(0)}
-                </div>
+    <div class="mini-avatar">
 
-                <div>
-                    <h3>${post.user.name}</h3>
-                    <small>Social Media User</small>
-                </div>
+        ${
+            post.user?.profilePic
+            ? `<img src="http://localhost:5000/uploads/${post.user.profilePic}"
+               style="width:40px;height:40px;border-radius:50%;object-fit:cover;">`
+            : post.user?.name?.charAt(0).toUpperCase()
+        }
 
-            </div>
+    </div>
+
+    <span>${post.user?.name}</span>
+
+</div>
 
             <div class="post-content">
                 ${post.content}
             </div>
 
             ${post.image ? `
-<img
-src="http://localhost:5000/uploads/${post.image}"
-class="post-image">
-` : ""}
+            <img
+            src="http://localhost:5000/uploads/${post.image}"
+            class="post-image">
+             ` : ""}
 
-${post.audio ? `
-<audio controls>
-<source
-src="http://localhost:5000/uploads/${post.audio}">
-</audio>
-` : ""}
+            ${post.audio ? `
+            <audio controls>
+            <source
+             src="http://localhost:5000/uploads/${post.audio}">
+              </audio>
+             ` : ""}
 
             <div class="post-actions">
 
-                <button onclick="likePost('${post._id}')">
-                    ❤️ Like (${post.likes.length})
-                </button>
+            <button onclick="likePost('${post._id}')">
+            ❤️ Like (${post.likes.length})
+            </button>
 
-                <button onclick="unlikePost('${post._id}')">
-    💔 Unlike
-</button>
+            <button onclick="unlikePost('${post._id}')">
+            💔 Unlike
+            </button>
 
-                <button onclick="deletePost('${post._id}')">
-                    🗑 Delete
-                </button>
+            <button onclick="savePost('${post._id}')">
+            🔖 Save
+             </button>
 
-            </div>
+        <button onclick="deletePost('${post._id}')">
+            🗑 Delete
+             </button>
+
+        </div>
 
             <div class="comment-box">
 
             <input
-type="text"
-id="comment-${post._id}"
-placeholder="😀 Add a comment...">
+            type="text"
+            id="comment-${post._id}"
+            placeholder="😀 Add a comment...">
 
 
                 <button onclick="addComment('${post._id}')">
@@ -286,20 +294,40 @@ async function searchUser(){
 
     users.forEach(user => {
 
-        output += `
-        <div class="post-card">
+    output += `
+    <div class="post-card">
 
-            <h3>${user.name}</h3>
+        <div class="post-header">
 
-            <p>${user.email}</p>
+            <div class="avatar">
 
-            <button onclick="followUser('${user._id}')">
-                Follow
-            </button>
+                ${
+                    user.profilePic
+                    ? `<img src="http://localhost:5000/uploads/${user.profilePic}"
+                       style="width:50px;height:50px;border-radius:50%;object-fit:cover;">`
+                    : user.name.charAt(0).toUpperCase()
+                }
+
+            </div>
+
+            <div>
+                <h3>${user.name}</h3>
+                <p>${user.email}</p>
+            </div>
 
         </div>
-        `;
-    });
+
+        <button onclick="followUser('${user._id}')">
+            Follow
+        </button>
+
+        <button onclick="unfollowUser('${user._id}')">
+               Unfollow
+          </button>
+
+    </div>
+    `;
+});
 
     document.getElementById("posts").innerHTML =
     output;
@@ -332,6 +360,171 @@ async function followUser(userId){
     }
 }
 
+async function unfollowUser(userId){
+
+    try{
+
+        const response = await fetch(
+            `${API_URL}/users/unfollow/${userId}`,
+            {
+                method:"PUT",
+                headers:{
+                    Authorization:`Bearer ${token}`
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        alert(data.message);
+
+    }catch(error){
+
+        console.log(error);
+
+        alert("Unfollow Failed");
+    }
+}
+
+async function savePost(postId){
+
+    const token = localStorage.getItem("token");
+
+    const response = await fetch(
+        `${API_URL}/users/save/${postId}`,
+        {
+            method:"PUT",
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        }
+    );
+
+    const data = await response.json();
+
+    alert(data.message);
+}
+
+async function unsavePost(postId){
+
+    const response = await fetch(
+        `${API_URL}/users/unsave/${postId}`,
+        {
+            method:"PUT",
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        }
+    );
+
+    const data = await response.json();
+
+    alert(data.message);
+
+    loadSavedPosts();
+}
+async function loadSavedPosts(){
+
+    const response = await fetch(
+        `${API_URL}/users/saved-posts`,
+        {
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        }
+    );
+
+    const posts = await response.json();
+
+    let output = "<h2>🔖 Saved Posts</h2>";
+
+posts.forEach(post => {
+
+    output += `
+    <div class="post-card">
+
+        <div class="post-user">
+
+            <div class="mini-avatar">
+
+                ${
+                    post.user?.profilePic
+                    ? `<img src="http://localhost:5000/uploads/${post.user.profilePic}"
+                       style="width:40px;height:40px;border-radius:50%;object-fit:cover;">`
+                    : post.user?.name?.charAt(0).toUpperCase()
+                }
+
+            </div>
+
+            <span>${post.user?.name || "Unknown User"}</span>
+
+        </div>
+
+        <div class="post-content">
+            ${post.content}
+        </div>
+
+        ${
+            post.image
+            ? `<img src="http://localhost:5000/uploads/${post.image}"
+               class="post-image">`
+            : ""
+        }
+
+        ${
+            post.audio
+            ? `<audio controls>
+                 <source src="http://localhost:5000/uploads/${post.audio}">
+               </audio>`
+            : ""
+        }
+
+        <div class="post-actions">
+
+            <button onclick="likePost('${post._id}')">
+                ❤️ Like (${post.likes.length})
+            </button>
+
+            <button onclick="unlikePost('${post._id}')">
+                💔 Unlike
+            </button>
+
+            <button onclick="savePost('${post._id}')">
+                🔖 Save
+            </button>
+
+            <button onclick="unsavePost('${post._id}')">
+                ❌ Unsave
+             </button>
+
+        </div>
+
+        <div class="comment-box">
+
+            <input
+            type="text"
+            id="comment-${post._id}"
+            placeholder="Add comment">
+
+            <button onclick="addComment('${post._id}')">
+                Comment
+            </button>
+
+        </div>
+
+        <div id="comments-${post._id}">
+        </div>
+
+    </div>
+    `;
+});
+document.getElementById("posts").innerHTML = output;
+
+posts.forEach(post => {
+    loadComments(post._id);
+});
+
+}
 function goProfile(){
 
     window.location.href =
@@ -357,4 +550,28 @@ function addEmoji(emoji){
     content.value += emoji;
 }
 
-loadPosts();
+function toggleEmojiPicker(){
+
+    const picker =
+    document.getElementById("emojiPicker");
+
+    if(picker.style.display === "none"){
+
+        picker.style.display = "block";
+
+    }else{
+
+        picker.style.display = "none";
+
+    }
+}
+
+function toggleMenu(){
+
+    const menu =
+    document.getElementById("settingsMenu");
+
+    menu.classList.toggle("show");
+}
+
+loadPosts(); 
