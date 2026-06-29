@@ -243,20 +243,20 @@ body{
 
 .profile-card{
     background:white;
-    padding:30px;
-    border-radius:15px;
+    padding:35px;
+    border-radius:20px;
     text-align:center;
-    margin-bottom:20px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    margin-bottom:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.12);
 }
 
 .profile-avatar{
-    width:100px;
-    height:100px;
+    width:120px;
+    height:120px;
     border-radius:50%;
-    background:#1877f2;
+    background:linear-gradient(135deg,#1877f2,#4f9cff);
     color:white;
-    font-size:40px;
+    font-size:45px;
     font-weight:bold;
     display:flex;
     justify-content:center;
@@ -270,6 +270,7 @@ body{
     justify-content:space-around;
     margin-top:20px;
 }
+
 
 /* Dark Theme */
 
@@ -346,32 +347,6 @@ object-fit:cover;
     border-radius:8px;
     cursor:pointer;
     font-size:18px;
-}
-
-/* Professional Profile Card */
-
-.profile-card{
-    background:white;
-    padding:35px;
-    border-radius:20px;
-    text-align:center;
-    margin-bottom:25px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.12);
-}
-
-.profile-avatar{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    background:linear-gradient(135deg,#1877f2,#4f9cff);
-    color:white;
-    font-size:45px;
-    font-weight:bold;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin:auto;
-    margin-bottom:20px;
 }
 
 /* Professional Post Card */
@@ -479,28 +454,6 @@ audio{
     border:2px solid white;
 }
 
-.profile-avatar-container{
-    position:relative;
-    width:120px;
-    margin:auto;
-}
-
-.camera-icon{
-    position:absolute;
-    bottom:5px;
-    right:0;
-    width:35px;
-    height:35px;
-    border-radius:50%;
-    background:#1877f2;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    cursor:pointer;
-    border:2px solid white;
-}
-
 .remove-icon{
     position:absolute;
     top:5px;
@@ -569,7 +522,7 @@ audio{
     display:flex;
     justify-content:center;
     gap:15px;
-    margin-top:20px;
+    margin-top:20px 0;
 }
 
 .profile-tabs button{
@@ -631,21 +584,6 @@ audio{
     font-size:18px;
 }
 
-
-.profile-tabs{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    margin:20px 0;
-}
-
-.profile-tabs button{
-    padding:10px 20px;
-    border:none;
-    border-radius:20px;
-    cursor:pointer;
-}
-
 .post-user{
     display:flex;
     align-items:center;
@@ -654,19 +592,6 @@ audio{
     font-weight:bold;
 }
 
-.mini-avatar{
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    background:#2196f3;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:bold;
-}
-
-#posts h2,
 #userPosts h2{
     text-align:center;
     margin-bottom:20px;
