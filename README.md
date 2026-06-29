@@ -84,40 +84,39 @@ node server.js
 
 ### Login Page
 
-![Login](screenshots/login.png)
+![Login](frontend/screenshots/login.png)
 
 ### Register Page
 
-![Register](screenshots/register.png)
+![Register](frontend/screenshots/register.png)
 
 ### Home Page
 
-![Home](screenshots/home.png)
+![Home](frontend/screenshots/home.png)
 
 ### Create Post
 
-![Create Post](screenshots/create-post.png)
+![Create Post](frontend/screenshots/create-post.png)
 
 ### Comments Feature
 
-![Comments](screenshots/comments.png)
+![Comments](frontend/screenshots/comments.png)
 
 ### Follow & Unfollow Users
 
-![Follow Unfollow](screenshots/follow-unfollow.png)
+![Follow Unfollow](frontend/screenshots/follow-unfollow.png)
 
 ### Save & Unsave Posts
 
-![Save Unsave](screenshots/save-unsave.png)
+![Save Unsave](frontend/screenshots/save-unsave.png)
 
 ### Profile Page
 
-![Profile](screenshots/profile.png)
+![Profile](frontend/screenshots/profile.png)
 
 ### Dark Mode
 
-![Dark Mode](screenshots/dark-mode.png)
-
+![Dark Mode](frontend/screenshots/dark-mode.png)
 
 ## Author
 
