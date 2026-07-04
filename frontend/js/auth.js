@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://codealpha-socialmedia-backend.onrender.com/api";
 
 async function registerUser() {
 

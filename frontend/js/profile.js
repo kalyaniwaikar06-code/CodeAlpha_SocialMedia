@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://codealpha-socialmedia-backend.onrender.com/api";
 let profileData = {};
 
 const user = JSON.parse(
@@ -27,7 +27,7 @@ async function loadProfile() {
 
          document.getElementById("avatar").innerHTML = `
         <img
-        src="http://localhost:5000/uploads/${data.profilePic}"
+        src="https://codealpha-socialmedia-backend.onrender.com/uploads/${data.profilePic}"
         style="
             width:100%;
             height:100%;
@@ -91,7 +91,7 @@ async function loadMyPosts() {
     <div class="avatar">
         ${
             user.profilePic
-            ? `<img src="http://localhost:5000/uploads/${user.profilePic}"
+            ? `<img src="https://codealpha-socialmedia-backend.onrender.com/uploads/${user.profilePic}"
                style="width:50px;height:50px;border-radius:50%;object-fit:cover;">`
             : user.name.charAt(0).toUpperCase()
         }
@@ -109,7 +109,7 @@ async function loadMyPosts() {
                 ${
                     post.image
                     ? `<img
-                        src="http://localhost:5000/uploads/${post.image}"
+                        src="https://codealpha-socialmedia-backend.onrender.com/uploads/${post.image}"
                         class="post-image">`
                     : ""
                 }
@@ -117,7 +117,7 @@ async function loadMyPosts() {
                 ${
                     post.audio
                     ? `<audio controls>
-                         <source src="http://localhost:5000/uploads/${post.audio}">
+                         <source src="https://codealpha-socialmedia-backend.onrender.com/uploads/${post.audio}">
                        </audio>`
                     : ""
                 }
@@ -213,7 +213,7 @@ console.log("SAVED POSTS:", posts);
     <div class="avatar">
         ${
             post.user?.profilePic
-            ? `<img src="http://localhost:5000/uploads/${post.user.profilePic}"
+            ? `<img src="https://codealpha-socialmedia-backend.onrender.com/uploads/${post.user.profilePic}"
                style="width:50px;height:50px;border-radius:50%;object-fit:cover;">`
             : post.user?.name?.charAt(0).toUpperCase()
         }
@@ -230,7 +230,7 @@ console.log("SAVED POSTS:", posts);
 
     ${
         post.image
-        ? `<img src="http://localhost:5000/uploads/${post.image}"
+        ? `<img src="https://codealpha-socialmedia-backend.onrender.com/uploads/${post.image}"
         class="post-image">`
         : ""
     }
@@ -238,7 +238,7 @@ console.log("SAVED POSTS:", posts);
     ${
         post.audio
         ? `<audio controls>
-             <source src="http://localhost:5000/uploads/${post.audio}">
+             <source src="https://codealpha-socialmedia-backend.onrender.com/uploads/${post.audio}">
            </audio>`
         : ""
     }
@@ -530,7 +530,7 @@ function showFollowers(){
     ${
         user.profilePic
         ? `<img
-            src="http://localhost:5000/uploads/${user.profilePic}"
+            src="https://codealpha-socialmedia-backend.onrender.com/uploads/${user.profilePic}"
             class="follow-pic">`
         : `<div class="follow-letter">
             ${user.name.charAt(0).toUpperCase()}
@@ -572,7 +572,7 @@ function showFollowing(){
     ${
         user.profilePic
         ? `<img
-            src="http://localhost:5000/uploads/${user.profilePic}"
+            src="https://codealpha-socialmedia-backend.onrender.com/uploads/${user.profilePic}"
             class="follow-pic">`
         : `<div class="follow-letter">
             ${user.name.charAt(0).toUpperCase()}
