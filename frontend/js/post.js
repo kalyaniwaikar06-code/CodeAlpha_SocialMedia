@@ -525,6 +525,38 @@ posts.forEach(post => {
 });
 
 }
+
+async function deleteAccount(){
+
+    const confirmDelete =
+    confirm("Are you sure you want to delete your account?");
+
+    if(!confirmDelete){
+        return;
+    }
+
+    const response =
+    await fetch(
+        `${API_URL}/users/delete-account`,
+        {
+            method:"DELETE",
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        }
+    );
+
+    const data =
+    await response.json();
+
+    alert(data.message);
+
+    localStorage.clear();
+
+    window.location.href = "register.html";
+}
+
+
 function goProfile(){
 
     window.location.href =

@@ -269,4 +269,32 @@ router.get(
 
     }
 );
+
+router.delete("/delete-account", authMiddleware, async (req, res) => {
+
+    try {
+
+        const User = require("../models/User");
+        const Post = require("../models/Post");
+        const Comment = require("../models/Comment");
+
+        await Post.deleteMany({ user: req.user });
+
+        await Comment.deleteMany({ user: req.user });
+
+        await User.findByIdAndDelete(req.user);
+
+        res.json({
+            message: "Account Deleted Successfully"
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            message: error.message
+        });
+
+    }
+
+});
 module.exports = router;
