@@ -1,4 +1,4 @@
-const API_URL = "https://codealpha-socialmedia-backend.onrender.com/api";
+const API_URL = "http://localhost:5000/api";
 
 const token = localStorage.getItem("token");
 
@@ -93,7 +93,7 @@ async function loadPosts() {
 
         ${
             post.user?.profilePic
-            ? `<img src="https://codealpha-socialmedia-backend.onrender.com/uploads/${post.user.profilePic}"
+            ? `<img src="http://localhost:5000/uploads/${post.user.profilePic}"
                style="width:40px;height:40px;border-radius:50%;object-fit:cover;">`
             : post.user?.name?.charAt(0).toUpperCase()
         }
@@ -110,14 +110,14 @@ async function loadPosts() {
 
             ${post.image ? `
             <img
-            src="https://codealpha-socialmedia-backend.onrender.com/uploads/${post.image}"
+            src="http://localhost:5000/uploads/${post.image}"
             class="post-image">
              ` : ""}
 
             ${post.audio ? `
             <audio controls>
             <source
-             src="https://codealpha-socialmedia-backend.onrender.com/uploads/${post.audio}">
+             src="http://localhost:5000/uploads/${post.audio}">
               </audio>
              ` : ""}
 
@@ -303,7 +303,7 @@ async function searchUser(){
 
                 ${
                     user.profilePic
-                    ? `<img src="https://codealpha-socialmedia-backend.onrender.com/uploads/${user.profilePic}"
+                    ? `<img src="http://localhost:5000/uploads/${user.profilePic}"
                        style="width:50px;height:50px;border-radius:50%;object-fit:cover;">`
                     : user.name.charAt(0).toUpperCase()
                 }
@@ -449,7 +449,7 @@ posts.forEach(post => {
 
                 ${
                     post.user?.profilePic
-                    ? `<img src="https://codealpha-socialmedia-backend.onrender.com/uploads/${post.user.profilePic}"
+                    ? `<img src="http://localhost:5000/uploads/${post.user.profilePic}"
                        style="width:40px;height:40px;border-radius:50%;object-fit:cover;">`
                     : post.user?.name?.charAt(0).toUpperCase()
                 }
@@ -466,7 +466,7 @@ posts.forEach(post => {
 
         ${
             post.image
-            ? `<img src="https://codealpha-socialmedia-backend.onrender.com/uploads/${post.image}"
+            ? `<img src="http://localhost:5000/uploads/${post.image}"
                class="post-image">`
             : ""
         }
@@ -474,7 +474,7 @@ posts.forEach(post => {
         ${
             post.audio
             ? `<audio controls>
-                 <source src="https://codealpha-socialmedia-backend.onrender.com/uploads/${post.audio}">
+                 <source src="http://localhost:5000/uploads/${post.audio}">
                </audio>`
             : ""
         }
